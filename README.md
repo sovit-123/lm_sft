@@ -9,4 +9,5 @@ Various GPT2 models trained using SFT (Supervised Fine Tuning) for several downs
 * Sentiment analysis
 * Text classification
 * Language translation
+* Code generation
 * And more coming...

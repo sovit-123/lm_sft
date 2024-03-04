@@ -1,0 +1,1 @@
+Scripts/notebooks for fine-tuning GPT2 models on base assistant datasets to teach it instruction following/chatting.
