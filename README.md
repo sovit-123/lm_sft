@@ -1,6 +1,6 @@
 # README
 
-Various GPT2 models trained using SFT (Supervised Fine Tuning) for several downstream tasks like:
+Various LMs/LLMs below 3B parameters (for now) trained using SFT (Supervised Fine Tuning) for several downstream tasks like:
 
 * Following instructions (the general instruction fine tuning)
 * Question Answering
