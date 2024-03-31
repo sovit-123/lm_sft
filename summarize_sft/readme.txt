@@ -1,1 +1,1 @@
-Scripts/notebooks for fine-tuning GPT2 models for various types of text summarization tasks.
+Scripts/notebooks for fine-tuning language models for various types of text summarization tasks.

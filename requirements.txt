@@ -5,3 +5,5 @@ transformers
 trl 
 datasets
 torch
+causal-conv1d>=1.2.0
+mamba-ssm
