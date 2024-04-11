@@ -1,9 +1,9 @@
-accelerate 
-peft 
-bitsandbytes 
-transformers 
-trl 
-datasets
+accelerate==0.29.1
+peft==0.10.0 
+bitsandbytes==0.43.0
+transformers==4.39.3 
+trl==0.8.1
+datasets==2.18.0
 torch
 causal-conv1d>=1.2.0
 mamba-ssm
