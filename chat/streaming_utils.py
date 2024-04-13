@@ -54,9 +54,16 @@ class TextStreamer(BaseStreamer):
         ```
     """
 
-    def __init__(self, tokenizer, skip_prompt: bool = False, **decode_kwargs):
+    def __init__(
+            self, 
+            tokenizer, 
+            skip_prompt: bool=False, 
+            truncate_before_pattern: list=[],
+              **decode_kwargs
+    ):
         self.tokenizer = tokenizer
         self.skip_prompt = skip_prompt
+        self.truncate_before_pattern = truncate_before_pattern
         self.decode_kwargs = decode_kwargs
 
         # variables used in the streaming process
@@ -81,7 +88,7 @@ class TextStreamer(BaseStreamer):
         self.token_cache.extend(value.tolist())
         text = self.tokenizer.decode(self.token_cache, **self.decode_kwargs)
 
-        text = self.truncate(text, ['###', '### Human:', '### Assistant:'])
+        text = self.truncate(text, self.truncate_before_pattern)
 
         # After the symbol for a new line, we flush the cache.
         if text.endswith("\n"):
@@ -105,7 +112,7 @@ class TextStreamer(BaseStreamer):
         # Flush the cache, if it exists
         if len(self.token_cache) > 0:
             text = self.tokenizer.decode(self.token_cache, **self.decode_kwargs)
-            text = self.truncate(text, ['###', '### Human:', '### Assistant:'])
+            text = self.truncate(text, self.truncate_before_pattern)
             printable_text = text[self.print_len :]
             self.token_cache = []
             self.print_len = 0
